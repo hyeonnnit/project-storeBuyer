@@ -15,23 +15,21 @@
             <th class="center-align col-2">상세보기</th>
         </tr>
         </thead>
-        {{#productList}}
-            <tbody>
-            <tr class="offer-table">
-                <th scope="row">{{id}}</th>
-                <td>{{name}}</td>
-                <td>{{price}}</td>
-                <td>{{qty}}</td>
-                <td>
-                    <div class="new-create-button">
-                        <form action="/product/{{id}}">
-                            <button type="submit" class="btn btn-outline-primary">상세보기</button>
-                        </form>
-                    </div>
-                </td>
-            </tr>
-            </tbody>
-        {{/productList}}
+        <tbody>
+        <tr class="offer-table">
+            <th scope="row">1</th>
+            <td>상품명</td>
+            <td>상품가격</td>
+            <td>상품수량</td>
+            <td>
+                <div class="new-create-button">
+                    <form action="/product/1">
+                        <button type="submit" class="btn btn-outline-primary">상세보기</button>
+                    </form>
+                </div>
+            </td>
+        </tr>
+        </tbody>
     </table>
 </div>
 
