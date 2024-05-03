@@ -5,8 +5,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
+
+import java.sql.Date;
 import java.time.LocalDateTime;
-import java.util.Date;
 
 
 @NoArgsConstructor
@@ -28,10 +29,13 @@ public class User {
     private String name;
 
     @Column(nullable = false)
+    private String email;
+
+    @Column(nullable = false)
     private String tel;
 
     @Column(nullable = false)
-    private Date birth;  //수량
+    private java.sql.Date birth;  //수량
 
     @Column(nullable = false)
     private String address;
@@ -40,11 +44,12 @@ public class User {
     private LocalDateTime createdAt;
 
     @Builder
-    public User(Integer id, String username, String password, String name, String tel, Date birth, String address, LocalDateTime createdAt) {
+    public User(Integer id, String name, String username, String password, String email, String tel, Date birth, String address, LocalDateTime createdAt) {
         this.id = id;
         this.username = username;
         this.password = password;
         this.name = name;
+        this.email = email;
         this.tel = tel;
         this.birth = birth;
         this.address = address;

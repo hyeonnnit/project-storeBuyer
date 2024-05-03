@@ -10,4 +10,8 @@ import org.springframework.stereotype.Repository;
 public class UserRepository {
     private final EntityManager em;
 
+    public User save(User user) {
+        em.persist(user);
+        return user;
+    }
 }

@@ -27,7 +27,8 @@ public class UserController {
 
     //회원가입
     @PostMapping("/join")
-    public String userJoin() {
+    public String userJoin(UserRequest.JoinDTO reqDTO) {
+        userService.join(reqDTO);
         return "redirect:/login-form";
     }
 
@@ -36,6 +37,8 @@ public class UserController {
         return "user/join-form";
     }
 
+
+    // 회원정보수정
     @PostMapping("/update")
     public String userUpdate() {
         return "redirect:/login-form";
