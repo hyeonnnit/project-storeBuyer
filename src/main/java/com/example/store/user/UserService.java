@@ -9,6 +9,11 @@ import org.springframework.stereotype.Service;
 public class UserService {
     private final UserRepository userRepository;
 
+    public User login(UserRequest.LoginDTO reqDTO){
+        User user = userRepository.findByUsernameAndPassword(reqDTO.getUsername(), reqDTO.getPassword());
+        return user;
+    }
+
     @Transactional
     public UserResponse.UserDTO join(UserRequest.JoinDTO reqDTO) {
         User user = userRepository.save(reqDTO.toEntity());

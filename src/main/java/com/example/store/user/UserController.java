@@ -15,12 +15,13 @@ public class UserController {
 
     //로그인
     @PostMapping("/login")
-    public String login() {
+    public String login(UserRequest.LoginDTO reqDTO) {
+        User sessionUser = userService.login(reqDTO);
+        session.setAttribute("sessionUser", sessionUser);
         return "redirect:/";
     }
 
-
-    @GetMapping("/user/login-form")
+    @GetMapping("/login-form")
     public String loginForm() {
         return "user/login-form";
     }
@@ -32,7 +33,7 @@ public class UserController {
         return "redirect:/login-form";
     }
 
-    @GetMapping("/user/join-form")
+    @GetMapping("/join-form")
     public String userJoinForm() {
         return "user/join-form";
     }
@@ -44,7 +45,7 @@ public class UserController {
         return "redirect:/login-form";
     }
 
-    @GetMapping("/user/update-form")
+    @GetMapping("/update-form")
     public String userUpdateForm() {
         return "user/update-form";
     }
