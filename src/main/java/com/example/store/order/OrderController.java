@@ -7,6 +7,7 @@ import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
@@ -26,7 +27,9 @@ public class OrderController {
     }
 
     @GetMapping("/order/{id}/product-form")
-    public String orderForm(){
+    public String orderForm(@PathVariable Integer id, HttpServletRequest request){
+        OrderResponse.DetailDTO order = orderService.getOrderDetail(id);
+        request.setAttribute("order", order);
         return "order/product-order-form";
     }
 

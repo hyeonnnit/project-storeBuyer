@@ -13,6 +13,12 @@ import java.util.List;
 public class OrderRepository {
     private final EntityManager em;
 
+    public Order findByProductId(int id) {
+        Query query = em.createQuery("select o from Order o JOIN FETCH o.product p WHERE p.id =:id");
+        query.setParameter("id", id);
+        return (Order) query.getSingleResult();
+    }
+
     public List<Order> findProductByUserId(int userId) {
         Query query =
                 em.createQuery("select o from Order o JOIN FETCH o.product p JOIN FETCH o.user u WHERE u.id = :user_id", Order.class);
