@@ -12,6 +12,11 @@ import java.util.List;
 public class ProductRepository {
     private final EntityManager em;
 
+    public Product findById(int id) {
+        Product product = em.find(Product.class, id);
+        return product;
+    }
+
     public List<Product> findAll() {
         Query query =
                 em.createQuery("select p from Product p order by p.id desc", Product.class);
