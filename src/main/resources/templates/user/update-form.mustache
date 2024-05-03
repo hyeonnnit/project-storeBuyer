@@ -45,16 +45,17 @@
         </ul>
 
         <!--        폼 시작 -->
-        <form action="#" method="post">
+        <form action="/update" method="post">
 
             <div class="mb-3 mt-3 form-group">
-                아이디 <input id="username" name="username" type="text" class="form-control" value="아이디" disabled>
+                아이디 <input id="username" name="username" type="text" class="form-control" value="{{user.username}}" disabled>
+                <!--                <button type="button" class="btn btn-primary mt-3" onclick="">중복확인</button>-->
                 <div class="alert" id="passCheck"></div>
             </div>
 
             <!--            비밀번호 -->
             <div class="mb-3 mt-3 has-success form-group">
-                비밀번호 <input id="password" name="password" type="password" class="form-control" value="비밀번호">
+                비밀번호 <input id="password" name="password" type="password" class="form-control" value="{{user.password}}">
             </div>
 
             <div class="mb-3 mt-5 has-danger form-group">
@@ -65,28 +66,28 @@
 
             <!--            본명 -->
             <div class="mb-3 mt-3 form-group">
-                이름 <input id="name" name="name" type="text" class="form-control" value="이름" disabled>
+                이름 <input id="name" name="name" type="text" class="form-control" value="{{user.name}}" disabled>
             </div>
             <!--            본명 끝 -->
 
             <!--            핸드폰 -->
             <div class="mb-3 mt-5 form-group">
-                전화번호 <input id="tel" name="tel" type="text" class="form-control" value="전화번호">
+                전화번호 <input id="tel" name="tel" type="text" class="form-control" value="{{user.tel}}">
             </div>
             <!--            핸드폰 -->
 
-                <div class="mb-3 mt-5 form-group">
-                    생년월일 <input id="birth" name="birth" type="date" class="form-control" value="생년월일">
-                </div>
+            <div class="mb-3 mt-5 form-group">
+                생년월일 <input id="birth" name="birth" type="date" class="form-control" value="{{user.birth}}">
+            </div>
             <!--이메일-->
             <div class="mb-3 mt-5">
-                이메일 <input id="email" name="email" type="email" class="form-control" value="이메일">
+                이메일 <input id="email" name="email" type="email" class="form-control" value="{{user.email}}">
             </div>
             <!-- 이메일-->
 
             <!--주소-->
             <div class="mb-3 mt-5 form-group">
-                주소 <input id="address" name="address" type="text" class="form-control" value="주소">
+                주소 <input id="address" name="address" type="text" class="form-control" value="{{user.address}}">
             </div>
 
             <!-- 가입하기 버튼-->
