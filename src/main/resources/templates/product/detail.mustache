@@ -1,25 +1,30 @@
 {{> layout/header}}
 <div class="d-flex justify-content-center" style="margin-top: 100px; margin-bottom: 200px;">
-    <div class="p-3 m-3" style="width: 300px;">
-        <img src="/images/banana.jpg" width="300" height="300">
-    </div>
+    {{#product}}
+        <div class="p-3 m-3" style="width: 300px;">
+            <img src="/images/{{pic}}" width="300" height="300">
+        </div>
 
-    <div class="p-3 m-3" style="width: 300px;">
-        <div class="mb-3 mt-3">
-            상 품 명 : <input name="name" type="text" class="form-control" value="상품명" readonly>
-        </div>
-        <div class="mb-3 mt-3">
-            상품가격 : <input name="price" type="number" class="form-control" value="상품가격" readonly>
-        </div>
-        <div class="mb-3 mt-3">
-            상품수량 : <input name="qty" type="number" class="form-control" value="상품수량" readonly>
-        </div>
-        <div class="d-flex justify-content-center">
-                <span><form action="/order/1/product-form">
+        <div class="p-3 m-3" style="width: 300px;">
+            <div class="mb-3 mt-3">
+                상 품 명 : <input name="name" type="text" class="form-control" value="{{name}}" readonly>
+            </div>
+            <div class="mb-3 mt-3">
+                상품가격 : <input name="price" type="number" class="form-control" value="{{price}}" readonly>
+            </div>
+            <div class="mb-3 mt-3">
+                상품수량 : <input name="qty" type="number" class="form-control" value="{{qty}}" readonly>
+            </div>
+            <div class="d-flex justify-content-center">
+                <span><form action="/order/{{product.id}}/product-form">
                     <button class="btn btn-danger mt-3">구매하기</button>
                 </form>
                 </span>
+            </div>
         </div>
-    </div>
+
+
+    {{/product}}
+
 </div>
 {{> layout/footer}}
