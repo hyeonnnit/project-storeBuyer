@@ -34,7 +34,9 @@ public class OrderController {
     }
 
     @PostMapping("/order/{id}/product")
-    public String order(){
+    public String order(@PathVariable Integer id, OrderRequest.SaveDTO reqDTO){
+        User sessionUser = (User) session.getAttribute("sessionUser");
+        orderService.orderSaveProduct(id, sessionUser, reqDTO);
         return "redirect:/orders";
     }
 }

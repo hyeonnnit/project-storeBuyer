@@ -13,6 +13,11 @@ import java.util.List;
 public class OrderRepository {
     private final EntityManager em;
 
+    public Order save(Order order){
+        em.persist(order);
+        return order;
+    }
+
     public Order findByProductId(int id) {
         Query query = em.createQuery("select o from Order o JOIN FETCH o.product p WHERE p.id =:id");
         query.setParameter("id", id);
